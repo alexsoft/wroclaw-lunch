@@ -51,6 +51,6 @@ class WelcomeController extends Controller
 
         File::put(storage_path('app/places.json'), json_encode($existingPlaces));
 
-        \Cache::flush('places');
+        \Cache::forget('places');
     }
 }
