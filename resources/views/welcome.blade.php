@@ -10,7 +10,7 @@
     <title>Where to lunch today?</title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-    <link href='//fonts.googleapis.com/css?family=Lato:100' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
 
     <style>
         body {
@@ -18,10 +18,10 @@
             padding: 0;
             width: 100%;
             height: 100%;
-            color: #B0BEC5;
+            color: #333;
             display: table;
             font-weight: 100;
-            font-family: 'Lato';
+            font-family: 'Open Sans', sans-serif;
         }
 
         .container {
@@ -36,12 +36,8 @@
         }
 
         .title {
-            font-size: 96px;
+            font-size: 60px;
             margin-bottom: 40px;
-        }
-
-        .quote {
-            font-size: 24px;
         }
 
         ul.all-places {
