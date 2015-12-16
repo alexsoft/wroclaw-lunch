@@ -16,17 +16,16 @@ class WelcomeController extends Controller
             );
         };
 
-        $places = \Cache::remember('places', 60, function() {
+        $places = \Cache::remember('places', 120, function() {
 
             $json = File::get(storage_path('app/places.json'));
 
             $places = json_decode($json, true);
 
             return $places;
-
         });
 
-//        $place = \Cache::remember('place', 60, function() use ($places) {
+        $place = \Cache::remember('place', 120, function() use ($places) {
 
             $date = (new \Carbon\Carbon)->format('Y-m-d');
 
@@ -34,11 +33,8 @@ class WelcomeController extends Controller
 
             $sub = substr($md5, -2);
 
-
-//            return $places[$sub % count($places)];
-            $place = $places[hexdec($sub) % count($places)];
-
-//        });
+            return $places[hexdec($sub) % count($places)];
+        });
 
         return view('welcome', compact('places', 'place'));
     }
