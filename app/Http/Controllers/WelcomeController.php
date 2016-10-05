@@ -9,15 +9,14 @@ class WelcomeController extends Controller
 {
     public function welcome()
     {
-        if (!File::exists(storage_path('app/places.json'))) {
+        if (! File::exists(storage_path('app/places.json'))) {
             File::put(
                 storage_path('app/places.json'),
                 json_encode(['Zupa', 'Kres', 'Kurna Chata', 'Express Oriental @ Dominikana'])
             );
-        };
+        }
 
-        $places = \Cache::remember('places', 120, function() {
-
+        $places = \Cache::remember('places', 120, function () {
             $json = File::get(storage_path('app/places.json'));
 
             $places = json_decode($json, true);
@@ -25,8 +24,7 @@ class WelcomeController extends Controller
             return $places;
         });
 
-        $place = \Cache::remember('place', 120, function() use ($places) {
-
+        $place = \Cache::remember('place', 120, function () use ($places) {
             $date = (new \Carbon\Carbon)->format('Y-m-d');
 
             $md5 = md5($date);
@@ -42,7 +40,7 @@ class WelcomeController extends Controller
     public function addNewPlace(Request $request)
     {
         $this->validate($request, [
-            'place' => 'required'
+            'place' => 'required',
         ]);
 
         $existingPlaces = json_decode(File::get(storage_path('app/places.json')), true);
