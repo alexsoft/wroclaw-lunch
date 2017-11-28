@@ -12,7 +12,9 @@ class WelcomeController extends Controller
         if (! File::exists(storage_path('app/places.json'))) {
             File::put(
                 storage_path('app/places.json'),
-                json_encode(['Zupa', 'Kres', 'Kurna Chata', 'Express Oriental @ Dominikana'])
+                json_encode(
+                    ["Zupa","Kres","Kurna Chata","Express Oriental @ Dominikana","North Fish","Sevi Kebab","Wok In","Pattie's","Pasibus","Burger Love","Burger Ltd","Central Cafe","Rock Burger","Moaburger","Pha Tha Thai","Hortyca","Panda Ramen","Bazylia","Shrimp House","Momos pierogarnia","Korba"]
+                )
             );
         }
 
